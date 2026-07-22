@@ -243,33 +243,6 @@ export const stats = [
   { value: "98%", label: "of our clients hire us again" },
 ] as const;
 
-export const testimonials = [
-  {
-    name: "Kavitha Satheesh",
-    text: "Good service, and staffs are polite.",
-  },
-  {
-    name: "Abdur Rahman",
-    text: "Best cleaning services highly recommended.",
-  },
-  {
-    name: "Adnan Khan",
-    text: "Very satisfied with the service. Staff was respectful, fast, and cleaned everything properly. Highly recommended.",
-  },
-  {
-    name: "Adnan Zeb",
-    text: "Very good cleaning service. Staff was polite and work was clean and professional. Highly recommended.",
-  },
-  {
-    name: "Usman Zeb",
-    text: "Good cleaning service.",
-  },
-  {
-    name: "Muhammad Adnan",
-    text: "Nice service.",
-  },
-] as const;
-
 export const faqs = [
   {
     question: "What cleaning services do you offer?",
