@@ -1,23 +1,21 @@
 import Image from "next/image";
-import { blogPosts } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/types";
+import { blogImages } from "@/lib/site";
 
-export function Blog() {
+export function Blog({ dict }: { dict: Dictionary }) {
   return (
     <section id="blog" className="section blog-section" aria-labelledby="blog-heading">
       <div className="container">
-        <p className="eyebrow">From our blog</p>
-        <h2 id="blog-heading">Expert Cleaning Tips & Home Care Insights</h2>
-        <p className="section-lead">
-          Stay informed with professional cleaning advice, practical maintenance tips, and
-          expert recommendations from the Daily Dubai Cleaning team.
-        </p>
+        <p className="eyebrow">{dict.blog.eyebrow}</p>
+        <h2 id="blog-heading">{dict.blog.title}</h2>
+        <p className="section-lead">{dict.blog.lead}</p>
 
         <div className="blog-grid">
-          {blogPosts.map((post) => (
+          {dict.blog.posts.map((post, index) => (
             <article key={post.title} className="blog-card">
               <div className="blog-media">
                 <Image
-                  src={post.image}
+                  src={blogImages[index] ?? blogImages[0]}
                   alt={post.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { PhoneIcon, WhatsAppIcon } from "@/components/Icons";
-import { faqs, siteConfig } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/types";
+import { siteConfig } from "@/lib/site";
 
-export function FAQ() {
+export function FAQ({ dict }: { dict: Dictionary }) {
   const [openIndex, setOpenIndex] = useState(-1);
 
   return (
@@ -12,17 +13,14 @@ export function FAQ() {
       <div className="container faq-grid">
         <div className="faq-intro">
           <p className="faq-eyebrow">
-            FAQs
+            {dict.faq.eyebrow}
             <span className="how-accent" aria-hidden />
           </p>
-          <h2 id="faq-heading">Frequently Asked Questions</h2>
+          <h2 id="faq-heading">{dict.faq.title}</h2>
 
           <aside className="faq-cta-card">
-            <h3>Looking for Professional Cleaning Services in Dubai?</h3>
-            <p>
-              Our friendly team is ready to help with all your residential and commercial
-              cleaning needs.
-            </p>
+            <h3>{dict.faq.ctaTitle}</h3>
+            <p>{dict.faq.ctaBody}</p>
             <div className="faq-cta-actions">
               <a className="faq-contact-btn faq-contact-phone" href={siteConfig.phoneHref}>
                 <span className="faq-contact-icon" aria-hidden>
@@ -46,7 +44,7 @@ export function FAQ() {
         </div>
 
         <div className="faq-list">
-          {faqs.map((faq, index) => {
+          {dict.faq.items.map((faq, index) => {
             const isOpen = openIndex === index;
             const panelId = `faq-panel-${index}`;
             const buttonId = `faq-button-${index}`;

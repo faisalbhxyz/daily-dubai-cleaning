@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PhoneIcon, WhatsAppIcon } from "@/components/Icons";
-import { services, siteConfig } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/types";
+import { serviceImages, serviceSlug, services, siteConfig } from "@/lib/site";
 
 function HomeBadgeIcon() {
   return (
@@ -163,33 +164,32 @@ const badgeIcons = [
   CctvBadgeIcon,
 ];
 
-export function Services() {
+export function Services({ dict }: { dict: Dictionary }) {
   return (
     <section id="services" className="section services-section" aria-labelledby="services-heading">
       <div className="container">
         <header className="services-header">
           <p className="services-eyebrow">
-            Our Cleaning Services
+            {dict.services.eyebrow}
             <span className="how-accent" aria-hidden />
           </p>
-          <h2 id="services-heading">
-            Complete Residential & Commercial Cleaning Services in Dubai
-          </h2>
-          <p className="section-lead">
-            Looking for trusted cleaning services in Dubai? Daily Dubai Cleaning offers home
-            cleaning, sofa cleaning, full area cleaning, paint touch-up, full home maintenance,
-            CCTV camera servicing, and more with trained professionals and affordable pricing.
-          </p>
+          <h2 id="services-heading">{dict.services.title}</h2>
+          <p className="section-lead">{dict.services.lead}</p>
         </header>
 
         <div className="services-grid">
-          {services.map((service, index) => {
+          {dict.services.items.map((service, index) => {
             const BadgeIcon = badgeIcons[index] ?? HomeBadgeIcon;
+            const anchorTitle = services[index]?.title ?? service.title;
             return (
-              <article key={service.title} className="service-card">
+              <article
+                key={anchorTitle}
+                id={`service-${serviceSlug(anchorTitle)}`}
+                className="service-card"
+              >
                 <div className="service-media">
                   <Image
-                    src={service.image}
+                    src={serviceImages[index] ?? serviceImages[0]}
                     alt={service.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -201,7 +201,7 @@ export function Services() {
                 <div className="service-body">
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
-                  <p className="included-label">Included Services:</p>
+                  <p className="included-label">{dict.services.included}</p>
                   <ul>
                     {service.items.map((item, itemIndex) => (
                       <li
@@ -213,7 +213,7 @@ export function Services() {
                     ))}
                     {service.items.length > 4 ? (
                       <li className="service-item-more">
-                        +{service.items.length - 4} more
+                        +{service.items.length - 4} {dict.services.more}
                       </li>
                     ) : null}
                   </ul>
@@ -229,7 +229,7 @@ export function Services() {
                       rel="noopener noreferrer"
                     >
                       <WhatsAppIcon className="h-4 w-4" />
-                      WhatsApp us
+                      {dict.services.whatsappUs}
                     </a>
                   </div>
                 </div>

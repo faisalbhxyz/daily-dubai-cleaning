@@ -1,4 +1,4 @@
-import { stats, whyChoose } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/types";
 
 function LeafAccent({ className = "" }: { className?: string }) {
   return (
@@ -78,25 +78,25 @@ function TeamIcon() {
 
 const whyIcons = [BookingIcon, EquipmentIcon, SatisfactionIcon, TeamIcon];
 
-export function WhyChooseUs() {
+export function WhyChooseUs({ dict }: { dict: Dictionary }) {
   return (
     <section className="section why-section" aria-labelledby="why-heading">
       <div className="container why-inner">
         <header className="why-header">
           <p className="why-eyebrow">
             <span className="why-slash" aria-hidden />
-            Why Choose Daily Dubai Cleaning
+            {dict.whyChoose.eyebrow}
             <span className="why-slash why-slash-right" aria-hidden />
           </p>
           <div className="why-title-wrap">
             <LeafAccent className="why-leaf why-leaf-left" />
-            <h2 id="why-heading">Trusted Cleaning Experts in Dubai</h2>
+            <h2 id="why-heading">{dict.whyChoose.title}</h2>
             <LeafAccent className="why-leaf why-leaf-right" />
           </div>
         </header>
 
         <div className="why-grid">
-          {whyChoose.map((item, index) => {
+          {dict.whyChoose.items.map((item, index) => {
             const Icon = whyIcons[index] ?? BookingIcon;
             return (
               <article key={item.title} className="why-item">
@@ -111,7 +111,7 @@ export function WhyChooseUs() {
         </div>
 
         <div className="stats-row" role="list">
-          {stats.map((stat) => (
+          {dict.whyChoose.stats.map((stat) => (
             <div key={stat.label} className="stat-item" role="listitem">
               <p className="stat-value">{stat.value}</p>
               <p className="stat-label">{stat.label}</p>

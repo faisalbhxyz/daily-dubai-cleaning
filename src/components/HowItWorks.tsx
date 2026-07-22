@@ -1,13 +1,8 @@
-import { steps } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/types";
 
 function LeafCluster({ className = "" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 48 40"
-      fill="none"
-      aria-hidden
-    >
+    <svg className={className} viewBox="0 0 48 40" fill="none" aria-hidden>
       <path
         d="M10 28c0-10 8-18 18-20-1 10-8 18-18 20z"
         fill="currentColor"
@@ -115,22 +110,20 @@ function HappyIcon() {
 const stepIcons = [QuoteIcon, CleanIcon, HappyIcon];
 const leafPositions = ["leaf-left", "leaf-top", "leaf-right"] as const;
 
-export function HowItWorks() {
+export function HowItWorks({ dict }: { dict: Dictionary }) {
   return (
     <section className="section how-section" aria-labelledby="how-heading">
       <div className="container how-inner">
         <header className="how-header">
           <p className="how-eyebrow">
-            How Daily Dubai Cleaning Works
+            {dict.howItWorks.eyebrow}
             <span className="how-accent" aria-hidden />
           </p>
-          <h2 id="how-heading">
-            Simple, Fast & Hassle-Free Cleaning Services in Dubai
-          </h2>
+          <h2 id="how-heading">{dict.howItWorks.title}</h2>
         </header>
 
         <ol className="steps-grid">
-          {steps.map((step, index) => {
+          {dict.howItWorks.steps.map((step, index) => {
             const Icon = stepIcons[index] ?? QuoteIcon;
             return (
               <li key={step.title} className="step-item">

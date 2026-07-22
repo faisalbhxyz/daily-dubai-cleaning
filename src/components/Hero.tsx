@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CheckIcon, PhoneIcon, WhatsAppIcon } from "@/components/Icons";
+import type { Dictionary } from "@/lib/i18n/types";
 import { siteConfig } from "@/lib/site";
 
 function HeroLeaves({ className = "" }: { className?: string }) {
@@ -17,14 +18,14 @@ function HeroLeaves({ className = "" }: { className?: string }) {
   );
 }
 
-export function Hero() {
+export function Hero({ dict }: { dict: Dictionary }) {
   return (
     <section id="home" className="hero">
       <div className="hero-shell">
         <div className="hero-media">
           <Image
             src="/images/cleaner-hero.jpeg"
-            alt="Professional Daily Dubai Cleaning staff ready with cleaning equipment"
+            alt={dict.hero.imageAlt}
             fill
             priority
             sizes="(max-width: 900px) 100vw, 1200px"
@@ -34,14 +35,8 @@ export function Hero() {
         </div>
 
         <div className="hero-panel">
-          <h1>
-            Best Cleaning Services in Dubai – {siteConfig.name}
-          </h1>
-          <p className="hero-lead">
-            {siteConfig.name} provides expert home cleaning, villa cleaning, office
-            cleaning, deep cleaning, move-in/move-out cleaning, and commercial cleaning
-            services across Dubai with trained professionals and guaranteed satisfaction.
-          </p>
+          <h1>{dict.hero.title}</h1>
+          <p className="hero-lead">{dict.hero.lead}</p>
 
           <div className="hero-ctas">
             <a className="hero-btn hero-btn-call" href={siteConfig.phoneHref}>
@@ -55,29 +50,19 @@ export function Hero() {
               rel="noopener noreferrer"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              WhatsApp us
+              {dict.hero.whatsappUs}
             </a>
           </div>
 
           <ul className="hero-traits">
-            <li>
-              <span className="hero-check" aria-hidden>
-                <CheckIcon />
-              </span>
-              Professional
-            </li>
-            <li>
-              <span className="hero-check" aria-hidden>
-                <CheckIcon />
-              </span>
-              Friendly
-            </li>
-            <li>
-              <span className="hero-check" aria-hidden>
-                <CheckIcon />
-              </span>
-              Convenient
-            </li>
+            {dict.hero.traits.map((trait) => (
+              <li key={trait}>
+                <span className="hero-check" aria-hidden>
+                  <CheckIcon />
+                </span>
+                {trait}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

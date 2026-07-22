@@ -1,14 +1,15 @@
 import { PhoneIcon, WhatsAppIcon } from "@/components/Icons";
+import type { Dictionary } from "@/lib/i18n/types";
 import { siteConfig } from "@/lib/site";
 
-export function FloatingContact() {
+export function FloatingContact({ dict }: { dict: Dictionary }) {
   return (
-    <div className="floating-contact" aria-label="Quick contact">
+    <div className="floating-contact" aria-label={dict.sticky.quickContact}>
       <a
         className="floating-btn floating-call"
         href={siteConfig.phoneHref}
-        aria-label={`Call ${siteConfig.phone}`}
-        title={`Call ${siteConfig.phone}`}
+        aria-label={`${dict.floating.call} ${siteConfig.phone}`}
+        title={`${dict.floating.call} ${siteConfig.phone}`}
       >
         <PhoneIcon />
       </a>
@@ -17,8 +18,8 @@ export function FloatingContact() {
         href={siteConfig.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        title="Chat on WhatsApp"
+        aria-label={dict.floating.chat}
+        title={dict.floating.chat}
       >
         <WhatsAppIcon />
       </a>

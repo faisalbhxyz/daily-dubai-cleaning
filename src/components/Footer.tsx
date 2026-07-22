@@ -2,7 +2,8 @@
 
 import { FormEvent, useState } from "react";
 import { BrandLogo, PhoneIcon } from "@/components/Icons";
-import { navLinks, siteConfig } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/types";
+import { siteConfig } from "@/lib/site";
 
 function FooterLeaves() {
   return (
@@ -60,7 +61,7 @@ const socials = [
   { label: "YouTube", href: siteConfig.social.youtube, Icon: YoutubeIcon },
 ] as const;
 
-export function Footer() {
+export function Footer({ dict }: { dict: Dictionary }) {
   const [subscribed, setSubscribed] = useState(false);
 
   function handleSubscribe(event: FormEvent<HTMLFormElement>) {
@@ -76,7 +77,7 @@ export function Footer() {
           <div className="footer-top">
             <div className="footer-cta">
               <FooterLeaves />
-              <h2>Our Goal is to Wow You With Every Clean</h2>
+              <h2>{dict.footer.goal}</h2>
               <a
                 className="footer-wa-btn"
                 href={siteConfig.whatsappHref}
@@ -86,29 +87,29 @@ export function Footer() {
                 <span className="footer-wa-icon" aria-hidden>
                   <PhoneIcon className="h-4 w-4" />
                 </span>
-                WhatsApp Us
+                {dict.footer.whatsappUs}
               </a>
             </div>
 
             <form className="footer-newsletter" onSubmit={handleSubscribe}>
-              <p className="footer-label">Subscribe to Our Newsletter</p>
+              <p className="footer-label">{dict.footer.newsletter}</p>
               <div className="footer-newsletter-row">
                 <label className="sr-only" htmlFor="newsletter-email">
-                  Email
+                  {dict.footer.email}
                 </label>
                 <input
                   id="newsletter-email"
                   name="email"
                   type="email"
                   required
-                  placeholder="Enter our email address"
+                  placeholder={dict.footer.emailPlaceholder}
                   autoComplete="email"
                 />
-                <button type="submit">Subscribe</button>
+                <button type="submit">{dict.footer.subscribe}</button>
               </div>
               {subscribed ? (
                 <p className="footer-newsletter-success" role="status">
-                  Thanks for subscribing.
+                  {dict.footer.subscribed}
                 </p>
               ) : null}
             </form>
@@ -116,14 +117,14 @@ export function Footer() {
 
           <div className="footer-brand-row">
             <BrandLogo variant="footer" />
-            <p className="footer-slogan">Clean today, brighter tomorrow</p>
+            <p className="footer-slogan">{dict.footer.slogan}</p>
           </div>
 
           <div className="footer-grid">
             <div className="footer-col">
-              <h3 className="footer-label">Quick Links</h3>
-              <nav aria-label="Footer">
-                {navLinks.map((link, index) => (
+              <h3 className="footer-label">{dict.footer.quickLinks}</h3>
+              <nav aria-label={dict.footer.footerNav}>
+                {dict.nav.map((link, index) => (
                   <a
                     key={link.href}
                     href={link.href}
@@ -136,7 +137,7 @@ export function Footer() {
             </div>
 
             <div className="footer-col">
-              <h3 className="footer-label">Contact Info</h3>
+              <h3 className="footer-label">{dict.footer.contactInfo}</h3>
               <p>{siteConfig.address}</p>
               <a className="footer-phone-pill" href={siteConfig.phoneHref}>
                 <span className="footer-phone-icon" aria-hidden>
@@ -150,20 +151,20 @@ export function Footer() {
             </div>
 
             <div className="footer-col">
-              <h3 className="footer-label">Working hours</h3>
+              <h3 className="footer-label">{dict.footer.workingHours}</h3>
               <dl className="hours">
                 <div>
-                  <dt>Mon – Fri:</dt>
+                  <dt>{dict.footer.monFri}</dt>
                   <dd>{siteConfig.hours.weekdays}</dd>
                 </div>
                 <div>
-                  <dt>Saturday:</dt>
+                  <dt>{dict.footer.saturday}</dt>
                   <dd>{siteConfig.hours.saturday}</dd>
                 </div>
                 <div>
-                  <dt>Sunday:</dt>
+                  <dt>{dict.footer.sunday}</dt>
                   <dd>
-                    <strong>{siteConfig.hours.sunday}</strong>
+                    <strong>{dict.footer.sundayClosed}</strong>
                   </dd>
                 </div>
               </dl>
@@ -175,7 +176,7 @@ export function Footer() {
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
           <p>
-            © {new Date().getFullYear()} {siteConfig.name}. All Rights Reserved.
+            © {new Date().getFullYear()} {siteConfig.name}. {dict.footer.rights}
           </p>
           <div className="footer-socials">
             {socials.map(({ label, href, Icon }) => (

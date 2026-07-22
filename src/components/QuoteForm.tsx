@@ -3,21 +3,8 @@
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { CheckIcon } from "@/components/Icons";
+import type { Dictionary } from "@/lib/i18n/types";
 import { siteConfig } from "@/lib/site";
-
-const serviceOptions = [
-  "House cleaning",
-  "Office cleaning",
-  "Deep cleaning",
-  "Move in out cleaning",
-  "Sofa cleaning",
-  "Full area cleaning",
-  "Paint touch-up",
-  "Full home maintenance",
-  "CCTV camera home servicing",
-  "Post Construction Cleaning",
-  "Recurring Cleaning",
-];
 
 function SprayDecor() {
   return (
@@ -41,7 +28,7 @@ function SprayDecor() {
   );
 }
 
-export function QuoteForm() {
+export function QuoteForm({ dict }: { dict: Dictionary }) {
   const [submitted, setSubmitted] = useState(false);
   const [agreed, setAgreed] = useState(true);
 
@@ -55,7 +42,11 @@ export function QuoteForm() {
     const phone = String(data.get("phone") || "");
     const service = String(data.get("service") || "");
     const sqft = String(data.get("sqft") || "");
-    const message = `Hi ${siteConfig.name}, I'd like a quote.%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ASq Ft: ${sqft}`;
+    const message = dict.quote.whatsappMessage
+      .replace("{name}", name)
+      .replace("{phone}", phone)
+      .replace("{service}", service)
+      .replace("{sqft}", sqft);
     window.open(`${siteConfig.whatsappHref}?text=${message}`, "_blank", "noopener,noreferrer");
     setSubmitted(true);
     form.reset();
@@ -67,33 +58,33 @@ export function QuoteForm() {
       <div className="container quote-grid">
         <form className="quote-form" onSubmit={handleSubmit}>
           <header className="quote-form-header">
-            <p className="quote-eyebrow">Get your</p>
-            <h2 id="quote-heading">Get a Quote</h2>
+            <p className="quote-eyebrow">{dict.quote.eyebrow}</p>
+            <h2 id="quote-heading">{dict.quote.title}</h2>
           </header>
 
           <div className="quote-fields">
             <label>
-              Your name
+              {dict.quote.name}
               <input
                 name="name"
                 type="text"
                 required
-                placeholder="Your Name"
+                placeholder={dict.quote.namePlaceholder}
                 autoComplete="name"
               />
             </label>
             <label>
-              Email
+              {dict.quote.email}
               <input
                 name="email"
                 type="email"
                 required
-                placeholder="example@gmail.com"
+                placeholder={dict.quote.emailPlaceholder}
                 autoComplete="email"
               />
             </label>
             <label>
-              Phone
+              {dict.quote.phone}
               <input
                 name="phone"
                 type="tel"
@@ -103,16 +94,16 @@ export function QuoteForm() {
               />
             </label>
             <label>
-              Total square footage
-              <input name="sqft" type="text" placeholder="e.g. 120" />
+              {dict.quote.sqft}
+              <input name="sqft" type="text" placeholder={dict.quote.sqftPlaceholder} />
             </label>
             <label className="quote-service">
-              Choose a service
+              {dict.quote.service}
               <select name="service" required defaultValue="">
                 <option value="" disabled>
-                  Select
+                  {dict.quote.select}
                 </option>
-                {serviceOptions.map((option) => (
+                {dict.quote.serviceOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>
@@ -128,20 +119,16 @@ export function QuoteForm() {
               onChange={(event) => setAgreed(event.target.checked)}
               required
             />
-            <span>
-              By submitting this form, you agree to the processing of your personal data
-              in accordance with the General Data Protection Regulation and our Privacy
-              Policy.
-            </span>
+            <span>{dict.quote.consent}</span>
           </label>
 
           <button type="submit" className="quote-submit">
-            I’d Like a Quote
+            {dict.quote.submit}
           </button>
 
           {submitted ? (
             <p className="form-success" role="status">
-              Thanks — WhatsApp is opening so we can confirm your quote request.
+              {dict.quote.success}
             </p>
           ) : null}
         </form>
@@ -150,7 +137,7 @@ export function QuoteForm() {
           <div className="quote-media">
             <Image
               src="/images/sofa-clean.jpeg"
-              alt="Professional sofa and upholstery cleaning in progress"
+              alt={dict.quote.imageAlt}
               fill
               sizes="(max-width: 900px) 100vw, 42vw"
             />
@@ -162,12 +149,8 @@ export function QuoteForm() {
                 <CheckIcon className="h-5 w-5" />
               </span>
               <div>
-                <h3>100% Satisfaction Guarantee</h3>
-                <p>
-                  Your satisfaction is our priority. We deliver professional, high-quality
-                  cleaning services with attention to every detail, ensuring your space is
-                  left fresh, spotless, and inviting.
-                </p>
+                <h3>{dict.quote.guaranteeTitle}</h3>
+                <p>{dict.quote.guaranteeBody}</p>
               </div>
             </div>
             <SprayDecor />

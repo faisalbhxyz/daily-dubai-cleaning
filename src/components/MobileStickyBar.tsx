@@ -1,12 +1,13 @@
 import { PhoneIcon, WhatsAppIcon } from "@/components/Icons";
+import type { Dictionary } from "@/lib/i18n/types";
 import { siteConfig } from "@/lib/site";
 
-export function MobileStickyBar() {
+export function MobileStickyBar({ dict }: { dict: Dictionary }) {
   return (
-    <div className="mobile-sticky" role="navigation" aria-label="Quick contact">
+    <div className="mobile-sticky" role="navigation" aria-label={dict.sticky.quickContact}>
       <a className="sticky-call" href={siteConfig.phoneHref}>
         <PhoneIcon />
-        Call Now
+        {dict.sticky.callNow}
       </a>
       <a
         className="sticky-wa"
@@ -15,7 +16,7 @@ export function MobileStickyBar() {
         rel="noopener noreferrer"
       >
         <WhatsAppIcon />
-        WhatsApp Now
+        {dict.sticky.whatsappNow}
       </a>
     </div>
   );
