@@ -11,9 +11,7 @@ export const siteConfig = {
   rating: "4.8",
   reviewCount: "480",
   hours: {
-    weekdays: "9.00am – 8.00pm",
-    saturday: "10.00am – 8.00pm",
-    sunday: "Closed",
+    everyday: "Open 24 Hours",
   },
   social: {
     facebook: "#",
@@ -87,7 +85,7 @@ export const serviceAreas = [
   "Deira",
   "Bur Dubai",
   "DSO",
-  "The Billa",
+  "The Villa",
   "Dubai Hill",
   "JVC",
   "JLD",

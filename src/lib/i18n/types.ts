@@ -114,10 +114,8 @@ export type Dictionary = {
     quickLinks: string;
     contactInfo: string;
     workingHours: string;
-    monFri: string;
-    saturday: string;
-    sunday: string;
-    sundayClosed: string;
+    everyDay: string;
+    open24Hours: string;
     rights: string;
     footerNav: string;
   };

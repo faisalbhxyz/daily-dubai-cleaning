@@ -154,17 +154,9 @@ export function Footer({ dict }: { dict: Dictionary }) {
               <h3 className="footer-label">{dict.footer.workingHours}</h3>
               <dl className="hours">
                 <div>
-                  <dt>{dict.footer.monFri}</dt>
-                  <dd>{siteConfig.hours.weekdays}</dd>
-                </div>
-                <div>
-                  <dt>{dict.footer.saturday}</dt>
-                  <dd>{siteConfig.hours.saturday}</dd>
-                </div>
-                <div>
-                  <dt>{dict.footer.sunday}</dt>
+                  <dt>{dict.footer.everyDay}</dt>
                   <dd>
-                    <strong>{dict.footer.sundayClosed}</strong>
+                    <strong>{dict.footer.open24Hours}</strong>
                   </dd>
                 </div>
               </dl>
