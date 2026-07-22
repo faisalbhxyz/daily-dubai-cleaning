@@ -91,7 +91,7 @@ export const serviceAreas = [
   "JLD",
   "Mira",
   "Town Square",
-  "Damak",
+  "Damak Hill",
 ] as const;
 
 export function serviceSlug(title: string) {
