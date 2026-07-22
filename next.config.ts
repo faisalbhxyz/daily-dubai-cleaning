@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* Local images from /public — no remote hosts needed */
 };
 
 export default nextConfig;
