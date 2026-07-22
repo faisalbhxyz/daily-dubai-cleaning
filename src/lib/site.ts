@@ -86,6 +86,14 @@ export const serviceAreas = [
   "Al Barsha",
   "Deira",
   "Bur Dubai",
+  "DSO",
+  "The Billa",
+  "Dubai Hill",
+  "JVC",
+  "JLD",
+  "Mira",
+  "Town Square",
+  "Damak",
 ] as const;
 
 export function serviceSlug(title: string) {
