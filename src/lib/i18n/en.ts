@@ -90,7 +90,7 @@ export const en: Dictionary = {
       "The cleaners treat your home like their own home",
     ],
     cta: "About Us",
-    imageAlt: "Daily Dubai Cleaning professionals cleaning a bright modern home",
+    imageAlt: "Daily Dubai Cleaning professional wiping a glass window with spray and cloth",
   },
   whyChoose: {
     eyebrow: "Why Choose Daily Dubai Cleaning",

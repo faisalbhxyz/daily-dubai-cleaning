@@ -89,7 +89,7 @@ export function QuoteForm({ dict }: { dict: Dictionary }) {
                 name="phone"
                 type="tel"
                 required
-                placeholder="+971 52 320 2314"
+                placeholder="+971 54 320 8578"
                 autoComplete="tel"
               />
             </label>

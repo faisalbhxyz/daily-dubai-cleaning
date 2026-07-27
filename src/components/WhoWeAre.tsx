@@ -31,7 +31,7 @@ export function WhoWeAre({ dict }: { dict: Dictionary }) {
 
           <div className="about-media">
             <Image
-              src="/images/home-vacuum.jpeg"
+              src="/images/about-window-clean.jpeg"
               alt={dict.about.imageAlt}
               fill
               sizes="(max-width: 900px) 100vw, 48vw"

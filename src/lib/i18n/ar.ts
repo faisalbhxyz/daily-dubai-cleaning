@@ -88,7 +88,7 @@ export const ar: Dictionary = {
       "يتعامل المنظّفون مع منزلك كما لو كان منزلهم",
     ],
     cta: "من نحن",
-    imageAlt: "محترفو Daily Dubai Cleaning ينظفون منزلاً عصرياً مشرقاً",
+    imageAlt: "محترف Daily Dubai Cleaning ينظف زجاج النافذة بزجاجة رش وقطعة قماش",
   },
   whyChoose: {
     eyebrow: "لماذا تختار Daily Dubai Cleaning",
