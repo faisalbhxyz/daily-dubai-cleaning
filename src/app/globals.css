@@ -1846,6 +1846,215 @@ select {
   text-transform: uppercase;
 }
 
+.blog-card-link {
+  display: block;
+  color: inherit;
+  height: 100%;
+}
+
+.blog-card-link:hover h2,
+.blog-card-link:hover h3 {
+  color: var(--gold);
+}
+
+.blog-card-excerpt {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card-meta {
+  margin: 0.85rem 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.blog-section-cta {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.blog-index-section h1 {
+  margin: 0.35rem 0 0.75rem;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.blog-index-grid .blog-body h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+.blog-post-main {
+  padding-top: 0.5rem;
+}
+
+.blog-article-wrap {
+  width: min(760px, calc(100% - 2rem));
+}
+
+.blog-breadcrumb {
+  margin: 0 0 1.25rem;
+}
+
+.blog-breadcrumb ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.blog-breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin-inline-start: 0.5rem;
+  opacity: 0.55;
+}
+
+.blog-breadcrumb a:hover {
+  color: var(--gold);
+}
+
+.blog-article-title {
+  margin: 0.2rem 0 0.65rem;
+  font-size: clamp(1.65rem, 3.2vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.blog-article-meta {
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.blog-article-hero {
+  position: relative;
+  height: min(360px, 52vw);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  margin-bottom: 1.35rem;
+  border: 1px solid var(--line);
+}
+
+.blog-article-hero img {
+  object-fit: cover;
+}
+
+.blog-direct-answer {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: 1rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+
+.blog-prose section + section {
+  margin-top: 1.5rem;
+}
+
+.blog-prose h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.28rem;
+  color: var(--navy);
+}
+
+.blog-prose p {
+  margin: 0 0 0.85rem;
+  color: #374151;
+}
+
+.blog-prose ul {
+  margin: 0 0 0.85rem;
+  padding-inline-start: 1.2rem;
+  color: #374151;
+}
+
+.blog-prose li + li {
+  margin-top: 0.35rem;
+}
+
+.blog-faq {
+  margin-top: 2rem;
+}
+
+.blog-faq h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.28rem;
+  color: var(--navy);
+}
+
+.blog-faq-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.blog-faq-item {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: white;
+  padding: 0.85rem 1rem;
+}
+
+.blog-faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.blog-faq-item p {
+  margin: 0.65rem 0 0;
+  color: #374151;
+}
+
+.blog-cta-box {
+  margin-top: 2rem;
+  padding: 1.35rem 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(600px 180px at 0% 0%, rgba(239, 51, 64, 0.08), transparent 55%),
+    radial-gradient(500px 160px at 100% 100%, rgba(0, 151, 57, 0.08), transparent 50%),
+    white;
+}
+
+.blog-cta-box h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--navy);
+}
+
+.blog-cta-box > p {
+  margin: 0 0 1rem;
+  color: #374151;
+}
+
+.blog-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
 .site-footer {
   background: transparent;
   color: #374151;
@@ -2092,9 +2301,25 @@ select {
   justify-content: space-between;
 }
 
+.footer-col .footer-socials {
+  margin-top: 0.15rem;
+}
+
 .footer-bottom p {
   margin: 0;
   color: #9ca3af;
+}
+
+.footer-credit {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-credit:hover {
+  color: #009739;
 }
 
 .footer-socials {

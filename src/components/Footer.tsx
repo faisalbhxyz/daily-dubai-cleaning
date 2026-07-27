@@ -2,8 +2,18 @@
 
 import { FormEvent, useState } from "react";
 import { BrandLogo, PhoneIcon } from "@/components/Icons";
+import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 import { siteConfig } from "@/lib/site";
+
+function footerHref(locale: Locale, href: string) {
+  if (href.startsWith("http")) return href;
+  if (href.startsWith("#")) return `/${locale}${href}`;
+  if (href.startsWith("/")) {
+    return href.startsWith(`/${locale}`) ? href : `/${locale}${href}`;
+  }
+  return `/${locale}/${href}`;
+}
 
 function FooterLeaves() {
   return (
@@ -61,7 +71,13 @@ const socials = [
   { label: "YouTube", href: siteConfig.social.youtube, Icon: YoutubeIcon },
 ] as const;
 
-export function Footer({ dict }: { dict: Dictionary }) {
+export function Footer({
+  dict,
+  locale = "en",
+}: {
+  dict: Dictionary;
+  locale?: Locale;
+}) {
   const [subscribed, setSubscribed] = useState(false);
 
   function handleSubscribe(event: FormEvent<HTMLFormElement>) {
@@ -116,7 +132,7 @@ export function Footer({ dict }: { dict: Dictionary }) {
           </div>
 
           <div className="footer-brand-row">
-            <BrandLogo variant="footer" />
+            <BrandLogo variant="footer" href={`/${locale}`} />
             <p className="footer-slogan">{dict.footer.slogan}</p>
           </div>
 
@@ -127,7 +143,7 @@ export function Footer({ dict }: { dict: Dictionary }) {
                 {dict.nav.map((link, index) => (
                   <a
                     key={link.href}
-                    href={link.href}
+                    href={footerHref(locale, link.href)}
                     className={index === 0 ? "is-active" : undefined}
                   >
                     {link.label}
@@ -148,6 +164,13 @@ export function Footer({ dict }: { dict: Dictionary }) {
               <a className="footer-email" href={`mailto:${siteConfig.email}`}>
                 {siteConfig.email}
               </a>
+              <div className="footer-socials">
+                {socials.map(({ label, href, Icon }) => (
+                  <a key={label} href={href} aria-label={label}>
+                    <Icon />
+                  </a>
+                ))}
+              </div>
             </div>
 
             <div className="footer-col">
@@ -170,13 +193,14 @@ export function Footer({ dict }: { dict: Dictionary }) {
           <p>
             © {new Date().getFullYear()} {siteConfig.name}. {dict.footer.rights}
           </p>
-          <div className="footer-socials">
-            {socials.map(({ label, href, Icon }) => (
-              <a key={label} href={href} aria-label={label}>
-                <Icon />
-              </a>
-            ))}
-          </div>
+          <a
+            className="footer-credit"
+            href="https://wa.me/8801310790697"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Developed by Adstryker
+          </a>
         </div>
       </div>
     </footer>

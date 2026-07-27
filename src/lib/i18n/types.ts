@@ -100,7 +100,18 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     lead: string;
-    posts: { category: string; title: string }[];
+    viewAll: string;
+    readArticle: string;
+    home: string;
+    blogLabel: string;
+    quickAnswer: string;
+    faqTitle: string;
+    bookNow: string;
+    freeQuote: string;
+    indexTitle: string;
+    indexLead: string;
+    indexMetaTitle: string;
+    indexMetaDescription: string;
   };
   footer: {
     goal: string;

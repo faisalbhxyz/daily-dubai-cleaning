@@ -11,6 +11,15 @@ import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 import { serviceHref, services } from "@/lib/site";
 
+function navHref(locale: Locale, href: string) {
+  if (href.startsWith("http")) return href;
+  if (href.startsWith("#")) return `/${locale}${href}`;
+  if (href.startsWith("/")) {
+    return href.startsWith(`/${locale}`) ? href : `/${locale}${href}`;
+  }
+  return `/${locale}/${href}`;
+}
+
 export function Header({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const [open, setOpen] = useState(false);
   const navLinks = dict.nav;
@@ -28,20 +37,23 @@ export function Header({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <BrandLogo />
+        <BrandLogo href={`/${locale}`} />
 
         <nav className="desktop-nav" aria-label={dict.header.primaryNav}>
           {navLinks.map((link) =>
-            link.href === "#services" ? (
+            link.href === "#services" || link.href === "/#services" ? (
               <div key={link.href} className="desktop-nav-item has-submenu">
-                <a href={link.href} className="desktop-nav-parent">
+                <a href={navHref(locale, "#services")} className="desktop-nav-parent">
                   {link.label}
                 </a>
                 <div className="desktop-submenu" role="menu" aria-label={link.label}>
                   {serviceItems.map((service, index) => (
                     <a
                       key={service.title}
-                      href={serviceHref(services[index]?.title ?? service.title)}
+                      href={navHref(
+                        locale,
+                        serviceHref(services[index]?.title ?? service.title),
+                      )}
                       role="menuitem"
                     >
                       {service.title}
@@ -52,8 +64,12 @@ export function Header({ dict, locale }: { dict: Dictionary; locale: Locale }) {
             ) : (
               <a
                 key={link.href}
-                href={link.href}
-                className={link.href === "#home" ? "is-active" : undefined}
+                href={navHref(locale, link.href)}
+                className={
+                  link.href === "#home" || link.href === "/"
+                    ? "is-active"
+                    : undefined
+                }
               >
                 {link.label}
               </a>
@@ -85,7 +101,10 @@ export function Header({ dict, locale }: { dict: Dictionary; locale: Locale }) {
           {serviceItems.map((service, index) => (
             <a
               key={service.title}
-              href={serviceHref(services[index]?.title ?? service.title)}
+              href={navHref(
+                locale,
+                serviceHref(services[index]?.title ?? service.title),
+              )}
               onClick={closeMenu}
             >
               {service.title}

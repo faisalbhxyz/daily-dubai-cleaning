@@ -63,15 +63,17 @@ export function StarIcon({ className = "h-4 w-4" }: { className?: string }) {
 export function BrandLogo({
   className = "",
   variant = "header",
+  href = "#home",
 }: {
   className?: string;
   variant?: "header" | "footer";
+  href?: string;
 }) {
   const isFooter = variant === "footer";
 
   return (
     <a
-      href="#home"
+      href={href}
       className={`brand-logo ${isFooter ? "brand-logo-footer" : ""} ${className}`}
       aria-label={siteConfig.name}
     >

@@ -38,9 +38,9 @@ export default async function HomePage({
         <QuoteForm dict={dict} />
         <FAQ dict={dict} />
         <ServiceAreas dict={dict} />
-        <Blog dict={dict} />
+        <Blog dict={dict} locale={locale} />
       </main>
-      <Footer dict={dict} />
+      <Footer dict={dict} locale={locale} />
       <FloatingContact dict={dict} />
       <MobileStickyBar dict={dict} />
     </>

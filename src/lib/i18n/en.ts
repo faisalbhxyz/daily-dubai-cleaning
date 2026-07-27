@@ -34,7 +34,7 @@ export const en: Dictionary = {
     { href: "#services", label: "Services" },
     { href: "#contact", label: "Contact us" },
     { href: "#areas", label: "Service areas" },
-    { href: "#blog", label: "Blog" },
+    { href: "/blog", label: "Blog" },
     { href: "#about", label: "About us" },
   ],
   header: {
@@ -346,11 +346,20 @@ export const en: Dictionary = {
     eyebrow: "From our blog",
     title: "Expert Cleaning Tips & Home Care Insights",
     lead: "Stay informed with professional cleaning advice, practical maintenance tips, and expert recommendations from the Daily Dubai Cleaning team.",
-    posts: [
-      { category: "Organizing", title: "The Deep Cleaning and Organizing" },
-      { category: "Cleaning", title: "Eco Friendly Products for Cleaning" },
-      { category: "Tips", title: "House Cleaning Services Before Moving in" },
-    ],
+    viewAll: "View all articles",
+    readArticle: "Read article",
+    home: "Home",
+    blogLabel: "Blog",
+    quickAnswer: "Quick answer:",
+    faqTitle: "Frequently asked questions",
+    bookNow: "Book cleaning",
+    freeQuote: "Free quote",
+    indexTitle: "Cleaning Guides for Dubai Homes & Offices",
+    indexLead:
+      "High-intent guides to help you book the right cleaning service — deep cleaning, move-out, villa, office, sofa, and more across Dubai.",
+    indexMetaTitle: "Dubai Cleaning Blog | Tips, Pricing & Booking Guides",
+    indexMetaDescription:
+      "Read expert Dubai cleaning guides from Daily Dubai Cleaning. Compare services, check pricing factors, and book by phone or WhatsApp +971 54 320 8578.",
   },
   footer: {
     goal: "Our Goal is to Wow You With Every Clean",

@@ -32,7 +32,7 @@ export const ar: Dictionary = {
     { href: "#services", label: "الخدمات" },
     { href: "#contact", label: "اتصل بنا" },
     { href: "#areas", label: "مناطق الخدمة" },
-    { href: "#blog", label: "المدونة" },
+    { href: "/blog", label: "المدونة" },
     { href: "#about", label: "من نحن" },
   ],
   header: {
@@ -344,11 +344,20 @@ export const ar: Dictionary = {
     eyebrow: "من مدونتنا",
     title: "نصائح خبراء للتنظيف ورعاية المنزل",
     lead: "ابقَ على اطلاع بنصائح التنظيف الاحترافية ونصائح الصيانة العملية وتوصيات الخبراء من فريق Daily Dubai Cleaning.",
-    posts: [
-      { category: "التنظيم", title: "التنظيف العميق والتنظيم" },
-      { category: "التنظيف", title: "منتجات صديقة للبيئة للتنظيف" },
-      { category: "نصائح", title: "خدمات تنظيف المنزل قبل الانتقال" },
-    ],
+    viewAll: "عرض كل المقالات",
+    readArticle: "اقرأ المقال",
+    home: "الرئيسية",
+    blogLabel: "المدونة",
+    quickAnswer: "إجابة سريعة:",
+    faqTitle: "الأسئلة الشائعة",
+    bookNow: "احجز التنظيف",
+    freeQuote: "عرض سعر مجاني",
+    indexTitle: "أدلة التنظيف لمنازل ومكاتب دبي",
+    indexLead:
+      "أدلة عملية تساعدك على حجز خدمة التنظيف المناسبة — التنظيف العميق، الخروج، الفلل، المكاتب، الكنب والمزيد في دبي.",
+    indexMetaTitle: "مدونة تنظيف دبي | نصائح وأسعار وأدلة الحجز",
+    indexMetaDescription:
+      "اقرأ أدلة تنظيف دبي من Daily Dubai Cleaning. قارن الخدمات واعرف عوامل التسعير واحجز عبر الهاتف أو واتساب +971 54 320 8578.",
   },
   footer: {
     goal: "هدفنا أن ندهشك مع كل عملية تنظيف",

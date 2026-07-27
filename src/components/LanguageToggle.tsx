@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
 
@@ -68,13 +69,15 @@ export function LanguageToggle({
   locale: Locale;
   dict: Dictionary;
 }) {
+  const pathname = usePathname() || `/${locale}`;
   const nextLocale: Locale = locale === "en" ? "ar" : "en";
   const currentLabel = locale === "en" ? dict.language.en : dict.language.ar;
   const nextLabel = nextLocale === "ar" ? dict.language.ar : dict.language.en;
+  const nextHref = pathname.replace(/^\/(en|ar)(?=\/|$)/, `/${nextLocale}`) || `/${nextLocale}`;
 
   return (
     <Link
-      href={`/${nextLocale}`}
+      href={nextHref}
       className="lang-toggle"
       hrefLang={nextLocale === "ar" ? "ar-AE" : "en-AE"}
       aria-label={dict.language.switchTo}

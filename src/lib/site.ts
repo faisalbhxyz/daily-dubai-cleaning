@@ -25,7 +25,7 @@ export const siteConfig = {
 export const services = [
   {
     title: "Home Cleaning Services",
-    image: "/images/home-vacuum.jpeg",
+    image: "/images/home-clean-pro.jpeg",
   },
   {
     title: "Office Cleaning Services",
@@ -68,7 +68,7 @@ export const services = [
 export const serviceImages = services.map((service) => service.image);
 
 export const blogImages = [
-  "/images/home-vacuum.jpeg",
+  "/images/home-clean-pro.jpeg",
   "/images/cleaner-hero.jpeg",
   "/images/sofa-clean.jpeg",
 ] as const;
