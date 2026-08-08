@@ -55,7 +55,7 @@ export const en: Dictionary = {
   },
   hero: {
     title: "Best Cleaning Services in Dubai – Daily Dubai Cleaning",
-    lead: "Daily Dubai Cleaning provides expert home cleaning, villa cleaning, office cleaning, deep cleaning, move-in/move-out cleaning, and commercial cleaning services across Dubai with trained professionals and guaranteed satisfaction.",
+    lead: "Daily Dubai Cleaning provides expert home cleaning, villa cleaning, office cleaning, deep cleaning, move-in/move-out cleaning, and commercial cleaning services across Dubai with trained professionals and guaranteed satisfaction. Book same-day cleaning across Dubai when slots are available.",
     whatsappUs: "WhatsApp us",
     imageAlt: "Professional Daily Dubai Cleaning staff ready with cleaning equipment",
     traits: ["Professional", "Friendly", "Convenient"],
