@@ -57,11 +57,22 @@ export type Dictionary = {
     included: string;
     more: string;
     whatsappUs: string;
+    viewDetails: string;
     items: {
       title: string;
       description: string;
       items: string[];
     }[];
+  };
+  serviceDetail: {
+    home: string;
+    servicesLabel: string;
+    benefits: string;
+    process: string;
+    bookNow: string;
+    freeQuote: string;
+    emailUs: string;
+    otherServices: string;
   };
   quote: {
     eyebrow: string;

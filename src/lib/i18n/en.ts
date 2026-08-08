@@ -131,6 +131,7 @@ export const en: Dictionary = {
     included: "Included Services:",
     more: "more",
     whatsappUs: "WhatsApp us",
+    viewDetails: "View details",
     items: [
       {
         title: "Home Cleaning Services",
@@ -261,6 +262,16 @@ export const en: Dictionary = {
         ],
       },
     ],
+  },
+  serviceDetail: {
+    home: "Home",
+    servicesLabel: "Services",
+    benefits: "Why choose this service",
+    process: "How it works",
+    bookNow: "Book this service",
+    freeQuote: "Free quote",
+    emailUs: "Email us",
+    otherServices: "Other cleaning services",
   },
   quote: {
     eyebrow: "Get your",

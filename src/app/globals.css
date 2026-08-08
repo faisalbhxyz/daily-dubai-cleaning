@@ -161,6 +161,16 @@ select {
   background: var(--whatsapp-dark);
 }
 
+.btn-email {
+  background: #0f766e;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.28);
+}
+
+.btn-email:hover {
+  background: #0d9488;
+}
+
 .brand-logo {
   display: inline-flex;
   align-items: center;
@@ -1213,6 +1223,7 @@ select {
 
 .service-media {
   position: relative;
+  display: block;
   height: 180px;
   border-radius: 1.1rem;
   overflow: hidden;
@@ -1346,6 +1357,193 @@ select {
 .service-btn-wa {
   background: #009739;
   color: #ffffff;
+}
+
+.service-btn-details {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.service-btn-email {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.service-body h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.service-body h3 a:hover {
+  color: var(--gold-deep, #b8860b);
+}
+
+.service-detail-main {
+  padding-top: 0.5rem;
+}
+
+.service-detail-wrap {
+  width: min(900px, calc(100% - 2rem));
+}
+
+.service-detail-eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.service-detail-title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.service-detail-lead {
+  margin: 0 0 1.25rem;
+  color: #374151;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.service-detail-hero {
+  position: relative;
+  height: min(380px, 54vw);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--line);
+}
+
+.service-detail-hero img {
+  object-fit: cover;
+}
+
+.service-detail-cta-top {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-detail-prose p {
+  margin: 0 0 0.95rem;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.service-detail-section {
+  margin-top: 1.75rem;
+}
+
+.service-detail-section h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.28rem;
+  color: var(--navy);
+}
+
+.service-detail-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.service-detail-list li {
+  position: relative;
+  padding-inline-start: 1.45rem;
+  color: #374151;
+}
+
+.service-detail-list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.45rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--brand, #1f9d55);
+}
+
+.service-detail-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.service-detail-steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: white;
+}
+
+.service-detail-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--navy);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.service-detail-steps h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.service-detail-steps p {
+  margin: 0;
+  color: #374151;
+}
+
+.service-detail-related {
+  margin-top: 2rem;
+}
+
+.service-detail-related h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  color: var(--navy);
+}
+
+.service-detail-related ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.service-detail-related a {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.service-detail-related a:hover {
+  color: var(--gold-deep, #b8860b);
+}
+
+@media (max-width: 700px) {
+  .service-detail-cta-top {
+    grid-template-columns: 1fr;
+  }
 }
 
 .testimonials-section {

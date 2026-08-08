@@ -1,6 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PhoneIcon, WhatsAppIcon } from "@/components/Icons";
+import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/types";
+import { servicePath } from "@/lib/services";
 import { serviceImages, serviceSlug, services, siteConfig } from "@/lib/site";
 
 function HomeBadgeIcon() {
@@ -164,7 +167,7 @@ const badgeIcons = [
   CctvBadgeIcon,
 ];
 
-export function Services({ dict }: { dict: Dictionary }) {
+export function Services({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   return (
     <section id="services" className="section services-section" aria-labelledby="services-heading">
       <div className="container">
@@ -181,13 +184,15 @@ export function Services({ dict }: { dict: Dictionary }) {
           {dict.services.items.map((service, index) => {
             const BadgeIcon = badgeIcons[index] ?? HomeBadgeIcon;
             const anchorTitle = services[index]?.title ?? service.title;
+            const slug = serviceSlug(anchorTitle);
+            const detailsHref = servicePath(locale, slug);
             return (
               <article
                 key={anchorTitle}
-                id={`service-${serviceSlug(anchorTitle)}`}
+                id={`service-${slug}`}
                 className="service-card"
               >
-                <div className="service-media">
+                <Link href={detailsHref} className="service-media">
                   <Image
                     src={serviceImages[index] ?? serviceImages[0]}
                     alt={service.title}
@@ -197,9 +202,11 @@ export function Services({ dict }: { dict: Dictionary }) {
                   <span className="service-badge" aria-hidden>
                     <BadgeIcon />
                   </span>
-                </div>
+                </Link>
                 <div className="service-body">
-                  <h3>{service.title}</h3>
+                  <h3>
+                    <Link href={detailsHref}>{service.title}</Link>
+                  </h3>
                   <p>{service.description}</p>
                   <p className="included-label">{dict.services.included}</p>
                   <ul>
@@ -218,6 +225,9 @@ export function Services({ dict }: { dict: Dictionary }) {
                     ) : null}
                   </ul>
                   <div className="service-actions">
+                    <Link className="service-btn service-btn-details" href={detailsHref}>
+                      {dict.services.viewDetails}
+                    </Link>
                     <a className="service-btn service-btn-call" href={siteConfig.phoneHref}>
                       <PhoneIcon className="h-4 w-4" />
                       {siteConfig.phone}

@@ -34,7 +34,7 @@ export default async function HomePage({
         <HowItWorks dict={dict} />
         <WhoWeAre dict={dict} />
         <WhyChooseUs dict={dict} />
-        <Services dict={dict} />
+        <Services dict={dict} locale={locale} />
         <QuoteForm dict={dict} />
         <FAQ dict={dict} />
         <ServiceAreas dict={dict} />

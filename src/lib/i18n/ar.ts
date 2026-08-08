@@ -129,6 +129,7 @@ export const ar: Dictionary = {
     included: "الخدمات المشمولة:",
     more: "المزيد",
     whatsappUs: "واتساب معنا",
+    viewDetails: "عرض التفاصيل",
     items: [
       {
         title: "خدمات تنظيف المنازل",
@@ -259,6 +260,16 @@ export const ar: Dictionary = {
         ],
       },
     ],
+  },
+  serviceDetail: {
+    home: "الرئيسية",
+    servicesLabel: "الخدمات",
+    benefits: "لماذا تختار هذه الخدمة",
+    process: "كيف تعمل",
+    bookNow: "احجز هذه الخدمة",
+    freeQuote: "عرض سعر مجاني",
+    emailUs: "راسلنا",
+    otherServices: "خدمات تنظيف أخرى",
   },
   quote: {
     eyebrow: "احصل على",

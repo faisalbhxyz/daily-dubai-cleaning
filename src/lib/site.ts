@@ -6,7 +6,7 @@ export const siteConfig = {
   phoneHref: "tel:+971543208578",
   whatsapp: "971543208578",
   whatsappHref: "https://wa.me/971543208578",
-  email: "info@dailydubaicleaning.com",
+  email: "dailydubaicleaning@gmail.com",
   address: "Dubai, United Arab Emirates",
   rating: "4.8",
   reviewCount: "480",
@@ -101,6 +101,12 @@ export function serviceSlug(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export function serviceHref(title: string) {
+/** Homepage section anchor for a service card */
+export function serviceAnchor(title: string) {
   return `#service-${serviceSlug(title)}`;
+}
+
+/** Locale-agnostic path to a service detail page (prefix with /en or /ar) */
+export function serviceHref(title: string) {
+  return `/services/${serviceSlug(title)}`;
 }
